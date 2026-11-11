@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOURFORM — визуальный стиль тура</title>
+    <link rel="stylesheet" href="../itsarisplaz/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="TOURFORM, на главную">TOURFORM</a>
+      <p class="header-note">Визуальный стиль для музыкального тура</p>
+    </header>
+
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Конструктор концепции</p>
+        <h1 id="page-title">Один тур — единый визуальный стиль</h1>
+        <p class="intro-copy">Выберите готовое направление, настройте палитру и проверьте, как оно работает на афише и мерче.</p>
+      </section>
+
+      <section class="workspace" aria-label="Редактор концепции">
+        <form class="controls" id="tour-form">
+          <div class="section-heading">
+            <p class="eyebrow">01 / Данные тура</p>
+            <h2>Начните с названия</h2>
+          </div>
+
+          <label for="artist-name">Имя артиста</label>
+          <input id="artist-name" name="artist" type="text" placeholder="Например, МИРНЫЙ" autocomplete="off" />
+
+          <label for="tour-name">Название тура</label>
+          <input id="tour-name" name="tour" type="text" placeholder="Например, Чёрный меридиан" autocomplete="off" />
+
+          <div class="section-heading compact">
+            <p class="eyebrow">02 / Направление</p>
+            <h2>Выберите палитру</h2>
+          </div>
+          <div class="palette-list" role="group" aria-label="Палитра тура">
+            <button class="palette-option is-selected" type="button" data-palette="graphite-lime" aria-pressed="true"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Graphite Lime</button>
+            <button class="palette-option" type="button" data-palette="black-orange" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Black Orange</button>
+            <button class="palette-option" type="button" data-palette="red-ink" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Red Ink</button>
+          </div>
+
+          <button class="primary-button" type="submit">Сохранить черновик</button>
+        </form>
+
+        <section class="preview" aria-labelledby="preview-title">
+          <div class="preview-heading">
+            <div>
+              <p class="eyebrow">Предпросмотр</p>
+              <h2 id="preview-title">Афиша тура</h2>
+            </div>
+            <span class="status-pill" id="save-status" role="status">Черновик</span>
+          </div>
+          <article class="poster" id="poster-preview" data-palette="graphite-lime">
+            <p class="poster-kicker">Live tour / 2026</p>
+            <p class="poster-artist" data-preview="artist">Имя артиста</p>
+            <h3 data-preview="tour">Название тура</h3>
+            <div class="poster-meta">
+              <span>Moscow · SPb · Kazan</span>
+              <span>#tourform</span>
+            </div>
+          </article>
+          <div class="preview-footer"><span>01 / 02</span><span>Макет афиши</span></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="../verakaw/app.js"></script>
+  </body>
+</html>
