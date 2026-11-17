@@ -16,54 +16,248 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Конструктор концепции</p>
         <h1 id="page-title">Один тур — единый визуальный стиль</h1>
-        <p class="intro-copy">Выберите готовое направление, настройте палитру и проверьте, как оно работает на афише и мерче.</p>
+        <p class="intro-copy">Выберите готовое направление, настройте палитру, шрифты и кегль и проверьте, как они работают на афише и мерче.</p>
       </section>
 
       <section class="workspace" aria-label="Редактор концепции">
-        <form class="controls" id="tour-form">
+        <form class="controls" id="tour-form" novalidate>
           <div class="section-heading">
             <p class="eyebrow">01 / Данные тура</p>
             <h2>Начните с названия</h2>
           </div>
 
           <label for="artist-name">Имя артиста</label>
-          <input id="artist-name" name="artist" type="text" placeholder="Например, МИРНЫЙ" autocomplete="off" />
+          <input id="artist-name" name="artist" type="text" placeholder="Например, МИРНЫЙ" autocomplete="off" maxlength="40" aria-describedby="artist-hint" />
+          <p class="field-hint" id="artist-hint">До 40 символов.</p>
 
           <label for="tour-name">Название тура</label>
-          <input id="tour-name" name="tour" type="text" placeholder="Например, Чёрный меридиан" autocomplete="off" />
+          <input id="tour-name" name="tour" type="text" placeholder="Например, Чёрный меридиан" autocomplete="off" maxlength="60" aria-describedby="tour-hint" />
+          <p class="field-hint" id="tour-hint">До 60 символов.</p>
+
+          <label for="slogan">Слоган тура</label>
+          <input id="slogan" name="slogan" type="text" placeholder="Например, Громче каждого города" maxlength="70" autocomplete="off" />
+
+          <label for="audience">Аудитория</label>
+          <input id="audience" name="audience" type="text" maxlength="100" />
+          <label for="goal">Цель проекта</label>
+          <input id="goal" name="goal" type="text" maxlength="120" />
+          <label for="character">Характер бренда</label>
+          <input id="character" name="character" type="text" maxlength="100" />
 
           <div class="section-heading compact">
-            <p class="eyebrow">02 / Направление</p>
-            <h2>Выберите палитру</h2>
+            <p class="eyebrow">02 / Маршрут</p>
+            <h2 id="cities-title">Города тура</h2>
           </div>
-          <div class="palette-list" role="group" aria-label="Палитра тура">
+          <div class="city-editor">
+            <label for="city-name">Название города</label>
+            <div class="city-row">
+              <input id="city-name" type="text" placeholder="Например, Казань" autocomplete="off" maxlength="30" aria-describedby="city-hint city-message" />
+              <button class="secondary-button" type="button" id="add-city">Добавить</button>
+            </div>
+            <p class="field-hint" id="city-hint">До 12 городов, название — до 30 символов. Добавить можно и клавишей Enter.</p>
+            <p class="city-message" id="city-message" role="status" hidden></p>
+            <ul class="city-list" id="city-list" aria-labelledby="cities-title"></ul>
+            <p class="city-empty" id="city-empty">Список пуст — на афише города не показываются.</p>
+            <p class="size-warning" id="city-warning" role="status" hidden></p>
+          </div>
+
+          <div class="section-heading compact">
+            <p class="eyebrow">03 / Направление</p>
+            <h2 id="palette-title">Выберите палитру</h2>
+          </div>
+          <div class="palette-list" role="group" aria-labelledby="palette-title">
             <button class="palette-option is-selected" type="button" data-palette="graphite-lime" aria-pressed="true"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Graphite Lime</button>
             <button class="palette-option" type="button" data-palette="black-orange" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Black Orange</button>
             <button class="palette-option" type="button" data-palette="red-ink" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Red Ink</button>
+            <button class="palette-option" type="button" data-palette="ultraviolet" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Ultraviolet</button>
+            <button class="palette-option" type="button" data-palette="cream-cobalt" aria-pressed="false"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span>Cream Cobalt</button>
           </div>
+
+          <fieldset class="font-pairs" aria-describedby="font-pairs-hint">
+            <legend class="section-heading compact">
+              <span class="eyebrow">04 / Типографика</span>
+              <span class="legend-title">Шрифтовая пара</span>
+            </legend>
+            <p class="field-hint" id="font-pairs-hint">Первый шрифт — заголовок и имя артиста, второй — дополнительный текст.</p>
+
+            <label class="font-option">
+              <input type="radio" name="fontPair" value="rubik-mulish" checked />
+              <span class="font-option-body">
+                <span class="font-option-display" data-font-sample="display" style="font-family: 'Rubik Mono One', sans-serif">Rubik Mono One</span>
+                <span class="font-option-plus" aria-hidden="true">+</span>
+                <span class="font-option-text" data-font-sample="text" style="font-family: 'Mulish', sans-serif">Mulish</span>
+              </span>
+              <span class="font-note" data-font-note="rubik-mulish" hidden></span>
+            </label>
+
+            <label class="font-option">
+              <input type="radio" name="fontPair" value="marck-mulish" />
+              <span class="font-option-body">
+                <span class="font-option-display" data-font-sample="display" style="font-family: 'Marck Script', cursive">Marck Script</span>
+                <span class="font-option-plus" aria-hidden="true">+</span>
+                <span class="font-option-text" data-font-sample="text" style="font-family: 'Mulish', sans-serif">Mulish</span>
+              </span>
+              <span class="font-note" data-font-note="marck-mulish" hidden></span>
+            </label>
+
+            <label class="font-option">
+              <input type="radio" name="fontPair" value="minsans-greatvibes" />
+              <span class="font-option-body">
+                <span class="font-option-display" data-font-sample="display" style="font-family: 'Min Sans', sans-serif">Min Sans</span>
+                <span class="font-option-plus" aria-hidden="true">+</span>
+                <span class="font-option-text" data-font-sample="text" style="font-family: 'Great Vibes', cursive">Great Vibes</span>
+              </span>
+              <span class="font-note" data-font-note="minsans-greatvibes" hidden></span>
+            </label>
+
+            <label class="font-option">
+              <input type="radio" name="fontPair" value="nauryz-montserrat" />
+              <span class="font-option-body">
+                <span class="font-option-display" data-font-sample="display" style="font-family: 'NauryzRedKeds', sans-serif">NauryzRedKeds</span>
+                <span class="font-option-plus" aria-hidden="true">+</span>
+                <span class="font-option-text" data-font-sample="text" style="font-family: 'Montserrat', sans-serif">Montserrat</span>
+              </span>
+              <span class="font-note" data-font-note="nauryz-montserrat" hidden></span>
+            </label>
+          </fieldset>
+
+          <div class="section-heading compact">
+            <p class="eyebrow">05 / Кегль</p>
+            <h2>Размер текста</h2>
+          </div>
+          <div class="size-control">
+            <label for="text-size">Кегль основного текста на макетах</label>
+            <div class="size-row">
+              <span class="size-mark" aria-hidden="true">A</span>
+              <input id="text-size" name="textSize" type="range" min="80" max="130" step="5" value="100" aria-describedby="text-size-value size-warning" />
+              <span class="size-mark size-mark-large" aria-hidden="true">A</span>
+              <output id="text-size-value" for="text-size">100%</output>
+            </div>
+            <p class="size-warning" id="size-warning" role="status" hidden></p>
+          </div>
+
+          <fieldset class="layout-options">
+            <legend>Композиция макетов</legend>
+            <label><input type="radio" name="layout" value="center" checked /> По центру</label>
+            <label><input type="radio" name="layout" value="left" /> По левому краю</label>
+          </fieldset>
 
           <button class="primary-button" type="submit">Сохранить черновик</button>
+          <p class="field-hint">Черновик хранится только в этом браузере и не передаётся по ссылке.</p>
+          <p class="storage-message" id="storage-message" role="alert" hidden></p>
         </form>
 
-        <section class="preview" aria-labelledby="preview-title">
-          <div class="preview-heading">
-            <div>
-              <p class="eyebrow">Предпросмотр</p>
-              <h2 id="preview-title">Афиша тура</h2>
+        <div class="preview-column">
+          <section class="preview" aria-labelledby="preview-title">
+            <div class="preview-heading">
+              <div>
+                <p class="eyebrow">Предпросмотр</p>
+                <h2 id="preview-title">Афиша тура</h2>
+              </div>
+              <span class="status-pill" id="save-status" role="status">Черновик</span>
             </div>
-            <span class="status-pill" id="save-status" role="status">Черновик</span>
-          </div>
-          <article class="poster" id="poster-preview" data-palette="graphite-lime">
-            <p class="poster-kicker">Live tour / 2026</p>
-            <p class="poster-artist" data-preview="artist">Имя артиста</p>
-            <h3 data-preview="tour">Название тура</h3>
-            <div class="poster-meta">
-              <span>Moscow · SPb · Kazan</span>
-              <span>#tourform</span>
+            <article class="poster" id="poster-preview" data-palette="graphite-lime" data-fit="poster" aria-label="Макет афиши">
+              <div class="poster-bg" aria-hidden="true"></div>
+              <div class="poster-shade" aria-hidden="true"></div>
+              <p class="poster-kicker">Live tour · 2026</p>
+              <div class="poster-center">
+                <h3 class="poster-artist" data-preview="artist">Имя артиста</h3>
+                <span class="poster-divider" aria-hidden="true"></span>
+                <p class="poster-tour" data-preview="tour">Название тура</p>
+                <p class="poster-slogan" data-preview="slogan">Громче каждого города</p>
+              </div>
+              <div class="poster-route" id="poster-route" hidden>
+                <p class="visually-hidden">Города тура:</p>
+                <ul class="poster-cities" id="poster-cities"></ul>
+              </div>
+              <p class="poster-meta">#tourform</p>
+            </article>
+            <div class="preview-footer"><span>01 / 04</span><span>Макет афиши</span></div>
+          </section>
+
+          <section class="preview social-preview" aria-labelledby="social-title">
+            <div class="preview-heading"><div><p class="eyebrow">Предпросмотр</p><h2 id="social-title">Карточка для соцсетей</h2></div><span class="status-pill">1 : 1</span></div>
+            <article class="social-card" aria-label="Макет карточки для социальных сетей">
+              <p class="social-kicker">Live tour · 2026</p>
+              <div class="social-content" data-fit="social">
+                <h3 data-preview="artist">Имя артиста</h3>
+                <p class="social-tour" data-preview="tour">Название тура</p>
+                <p class="social-slogan" data-preview="slogan">Громче каждого города</p>
+              </div>
+              <p class="social-footer">#tourform</p>
+            </article>
+            <div class="preview-footer"><span>02 / 04</span><span>Карточка соцсетей</span></div>
+          </section>
+
+          <section class="preview merch" aria-labelledby="merch-title">
+            <div class="preview-heading">
+              <div>
+                <p class="eyebrow">Предпросмотр</p>
+                <h2 id="merch-title">Мерч тура</h2>
+              </div>
+              <span class="status-pill">Вид спереди</span>
             </div>
-          </article>
-          <div class="preview-footer"><span>01 / 02</span><span>Макет афиши</span></div>
-        </section>
+
+            <div class="merch-grid">
+              <figure class="merch-item merch-tee" aria-labelledby="tee-caption">
+                <div class="garment">
+                  <svg class="garment-shape" viewBox="0 0 300 320" aria-hidden="true" focusable="false">
+                    <path class="garment-fill" d="M104 18 C118 30 182 30 196 18 L250 40 L292 98 L250 124 L232 104 L232 306 L68 306 L68 104 L50 124 L8 98 L50 40 Z" />
+                    <path class="garment-detail" d="M104 18 C118 42 182 42 196 18" />
+                    <path class="garment-detail" d="M68 104 L68 140 M232 104 L232 140" />
+                  </svg>
+                  <div class="print" data-fit="tee">
+                    <span class="print-kicker">Live tour 2026</span>
+                    <span class="print-artist" data-preview="artist">Имя артиста</span>
+                    <span class="print-rule" aria-hidden="true"></span>
+                    <span class="print-tour" data-preview="tour">Название тура</span>
+                  </div>
+                </div>
+                <figcaption id="tee-caption"><span>03 / 04</span><span>Футболка · спереди</span></figcaption>
+              </figure>
+
+              <figure class="merch-item merch-hoodie" aria-labelledby="hoodie-caption">
+                <div class="garment">
+                  <svg class="garment-shape" viewBox="0 0 300 320" aria-hidden="true" focusable="false">
+                    <path class="garment-fill" d="M110 22 C112 4 188 4 190 22 L246 42 L286 120 L276 290 L246 294 L238 140 L236 300 L64 300 L62 140 L54 294 L24 290 L14 120 L54 42 Z" />
+                    <path class="garment-detail" d="M110 22 C116 64 184 64 190 22" />
+                    <path class="garment-detail" d="M140 52 L138 96 M160 52 L162 96" />
+                    <path class="garment-detail" d="M96 232 L204 232 L214 284 L86 284 Z" />
+                    <path class="garment-detail" d="M64 282 L236 282" />
+                  </svg>
+                  <div class="print" data-fit="hoodie">
+                    <span class="print-kicker">Live tour 2026</span>
+                    <span class="print-artist" data-preview="artist">Имя артиста</span>
+                    <span class="print-rule" aria-hidden="true"></span>
+                    <span class="print-tour" data-preview="tour">Название тура</span>
+                  </div>
+                </div>
+                <figcaption id="hoodie-caption"><span>04 / 04</span><span>Худи · спереди</span></figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="brandbook" aria-labelledby="brandbook-title">
+        <p class="eyebrow">Итоговая концепция</p>
+        <h2 id="brandbook-title">Брендбук тура</h2>
+        <p class="brandbook-intro">Бриф и выбранное оформление. Для сохранения выберите «Сохранить как PDF» в диалоге печати.</p>
+        <dl class="brandbook-details">
+          <div><dt>Артист</dt><dd data-preview="artist">Имя артиста</dd></div>
+          <div><dt>Тур</dt><dd data-preview="tour">Название тура</dd></div>
+          <div><dt>Слоган</dt><dd data-preview="slogan">Громче каждого города</dd></div>
+          <div><dt>Аудитория</dt><dd data-brief="audience"></dd></div>
+          <div><dt>Цель</dt><dd data-brief="goal"></dd></div>
+          <div><dt>Характер</dt><dd data-brief="character"></dd></div>
+          <div><dt>Города</dt><dd id="brandbook-cities"></dd></div>
+          <div><dt>Палитра</dt><dd id="brandbook-palette"></dd></div>
+          <div><dt>Цвета</dt><dd class="brandbook-colors"><span><i class="color-chip color-bg"></i>Фон <b id="color-bg"></b></span><span><i class="color-chip color-text"></i>Текст <b id="color-text"></b></span><span><i class="color-chip color-accent"></i>Акцент <b id="color-accent"></b></span></dd></div>
+          <div><dt>Шрифты</dt><dd id="brandbook-font"></dd></div>
+          <div><dt>Кегль</dt><dd id="brandbook-size"></dd></div>
+          <div><dt>Композиция</dt><dd id="brandbook-layout"></dd></div>
+        </dl>
+        <button class="primary-button print-button" id="print-brandbook" type="button">Печать / PDF</button>
       </section>
     </main>
 
