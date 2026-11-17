@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g" cx="50%" cy="100%" r="70%"><stop offset="0" stop-color="#ff7b35" stop-opacity=".55"/><stop offset="1" stop-color="#ff7b35" stop-opacity="0"/></radialGradient></defs><rect width="400" height="500" fill="url(#g)"/><g fill="#ff7b35" opacity=".16">
+<path d="M200 -40 L200.0 -940.0 L356.3 -926.3 Z"/>
+<path d="M200 -40 L507.8 -885.7 L650.0 -819.4 Z"/>
+<path d="M200 -40 L778.5 -729.4 L889.4 -618.5 Z"/>
+<path d="M200 -40 L979.4 -490.0 L1045.7 -347.8 Z"/>
+<path d="M200 -40 L1086.3 -196.3 L1100.0 -40.0 Z"/>
+<path d="M200 -40 L1086.3 116.3 L1045.7 267.8 Z"/>
+<path d="M200 -40 L979.4 410.0 L889.4 538.5 Z"/>
+<path d="M200 -40 L778.5 649.4 L650.0 739.4 Z"/>
+<path d="M200 -40 L507.8 805.7 L356.3 846.3 Z"/>
+<path d="M200 -40 L200.0 860.0 L43.7 846.3 Z"/>
+<path d="M200 -40 L-107.8 805.7 L-250.0 739.4 Z"/>
+<path d="M200 -40 L-378.5 649.4 L-489.4 538.5 Z"/>
+<path d="M200 -40 L-579.4 410.0 L-645.7 267.8 Z"/>
+<path d="M200 -40 L-686.3 116.3 L-700.0 -40.0 Z"/>
+<path d="M200 -40 L-686.3 -196.3 L-645.7 -347.8 Z"/>
+<path d="M200 -40 L-579.4 -490.0 L-489.4 -618.5 Z"/>
+<path d="M200 -40 L-378.5 -729.4 L-250.0 -819.4 Z"/>
+<path d="M200 -40 L-107.8 -885.7 L43.7 -926.3 Z"/>
+</g><circle cx="200" cy="-40" r="70" fill="#ff7b35" opacity=".9"/></svg>
